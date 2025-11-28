@@ -4,22 +4,33 @@
 replicaCount: 1
 
 image:
-  repository: ""
-  tag: ""
+  repository: "alexsc333/evkr"
+  tag: "v0.3-2"
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
   port: 80
+  targetPort: 8000
 
 ingress:
   enabled: false
   className: ""
   annotations: {}
-  hosts: [] # Example: [{ host: "example.com", path: "/" }]
-  tls: []   # Example: [{ hosts: ["example.com"], secretName: "tls-secret" }]
+  hosts:
+    # Exemple d'URL d'ingress liée à cette release. Modifiez selon votre domaine.
+    - host: "example.evkr.local"
+      path: "/"
+      pathType: "Prefix"
+  # Exemple d'entrée TLS pour le host ci-dessus. Définissez un secret TLS si nécessaire.
+  tls:
+    - hosts:
+        - "example.evkr.local"
+      secretName: "example-evkr-tls-secret"
 
-env: {} # Map of environment variables for the container
+env: 
+  - name: GNEWS_API_KEY
+    value: e5087cdcd2644089012378c4fa0ed684
 
 # Add any extra containers, resources, nodeSelector, tolerations, etc. below if needed
 resources: {}

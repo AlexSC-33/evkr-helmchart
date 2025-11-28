@@ -1,5 +1,5 @@
 apiVersion: v2
-name: mychart
+name: evkr-helmchart
 description: "A Helm chart scaffold generated — remplissez ce fichier selon vos besoins."
 type: application
 version: 0.1.0
