@@ -1,0 +1,13 @@
+Thank you for installing {{ .Chart.Name }}!
+
+To access your application:
+
+1. Get the application name:
+  releaseName={{ .Release.Name }}
+  echo "Release: $releaseName"
+
+2. If you have an external IP (LoadBalancer) run:
+  kubectl get svc --namespace {{ .Release.Namespace }} -l app.kubernetes.io/instance={{ .Release.Name }}
+
+3. If Ingress is enabled, check your ingress host(s):
+  kubectl get ingress --namespace {{ .Release.Namespace }} -l app.kubernetes.io/instance={{ .Release.Name }}

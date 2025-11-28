@@ -1,0 +1,9 @@
+# Common Helm ignores
+.DS_Store
+.git/
+.gitignore
+*.tgz
+*.bak
+*.tmp
+node_modules/
+*.swp
